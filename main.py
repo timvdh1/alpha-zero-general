@@ -1,11 +1,15 @@
 from Coach import Coach
-from othello.OthelloGame import OthelloGame as Game
-from othello.pytorch.NNet import NNetWrapper as nn
+from wondevwoman.WonDevGame import WonDevGame as Game
+
+#g = Game(4)
+#g.getValidMoves(g.getInitBoard(), -1)
+from wondevwoman.pytorch.NNet import NNetWrapper as nn
 from utils import *
+
 
 args = dotdict({
     'numIters': 1000,
-    'numEps': 100,
+    'numEps': 1,
     'tempThreshold': 15,
     'updateThreshold': 0.6,
     'maxlenOfQueue': 200000,
@@ -13,7 +17,7 @@ args = dotdict({
     'arenaCompare': 40,
     'cpuct': 1,
 
-    'checkpoint': './temp/',
+    'checkpoint': './tempx/',
     'load_model': False,
     'load_folder_file': ('/dev/models/8x100x50','best.pth.tar'),
     'numItersForTrainExamplesHistory': 20,
@@ -21,6 +25,7 @@ args = dotdict({
 })
 
 if __name__=="__main__":
+
     g = Game(6)
     nnet = nn(g)
 
