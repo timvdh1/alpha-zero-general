@@ -48,7 +48,7 @@ class Board():
             for x in range(self.n):
                 if sign(self.playerTiles[x][y])==color:
                     newmoves = self.get_moves_for_square((x,y))
-                    playerid = (abs(self.playerTiles[x][y])-1) * (2 * 8 * 8)
+                    playerid = (abs(self.playerTiles[x][y])-1) * (1 * 8 * 8)
                     newmoves = map(lambda move: (playerid+move) , newmoves)
                     moves.update(newmoves)
         return list(moves)
@@ -116,8 +116,8 @@ class Board():
 
     @staticmethod
     def decode_move(move):
-        playerid = move // (2 * 8 * 8)
-        move = move % (2 * 8 * 8)
+        playerid = move // (1 * 8 * 8)
+        move = move % (1 * 8 * 8)
 
         action = move // (8 * 8)
         move = move % (8 * 8)

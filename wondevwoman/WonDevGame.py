@@ -21,7 +21,7 @@ class WonDevGame(Game):
 
     def getActionSize(self):
         # return number of actions
-        return (1 * 2 * 8 * 8) + 1
+        return (1 * 1 * 8 * 8) + 1
 
     def getNextState(self, board, player, action):
         # if player takes action on board, return next (board,player)
@@ -89,6 +89,7 @@ class WonDevGame(Game):
         l = []
         
         pi_len = len(pi)
+        pi_pass = pi[-1]
         pi = [x[0] for x in filter(lambda x: x[1],zip(range(pi_len-1),pi))]
         
         for i in range(1, 5):
@@ -97,7 +98,8 @@ class WonDevGame(Game):
                 newB2 = np.rot90(board[1], i)
                 newB3 = np.rot90(board[2], i)
                 
-                newPi = [None]*pi_len        
+                newPi[-1] = pi_pass      
+                newPi = [0]*pi_len
                 for move in pi:
                     (playerid, action, dir1, dir2) = Board.decode_move(move)
                     playerid -= 1
