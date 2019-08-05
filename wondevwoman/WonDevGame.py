@@ -97,9 +97,9 @@ class WonDevGame(Game):
                 newB1 = np.rot90(board[0], i)
                 newB2 = np.rot90(board[1], i)
                 newB3 = np.rot90(board[2], i)
-                
-                newPi[-1] = pi_pass      
+                      
                 newPi = [0]*pi_len
+                newPi[-1] = pi_pass
                 for move in pi:
                     (playerid, action, dir1, dir2) = Board.decode_move(move)
                     playerid -= 1
